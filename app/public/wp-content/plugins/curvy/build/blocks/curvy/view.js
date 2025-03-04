@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
-/*!***************************!*\
-  !*** ./src/curvy/view.js ***!
-  \***************************/
+/*!**********************************!*\
+  !*** ./src/blocks/curvy/view.js ***!
+  \**********************************/
 /**
  * Use this file for JavaScript code that you want to run in the front-end
  * on posts/pages that contain this block.
