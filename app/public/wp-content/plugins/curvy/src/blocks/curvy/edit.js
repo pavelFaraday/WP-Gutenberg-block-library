@@ -33,7 +33,8 @@ import './editor.scss';
 
 import metadata from './block.json';
 
-export default function Edit() {
+export default function Edit(props) {
+	console.log(props);
 	return (
 		<>
 			<p { ...useBlockProps() }>
@@ -42,7 +43,11 @@ export default function Edit() {
 			<InspectorControls>
 				<PanelBody title={__("Top curve", metadata.textdomain)}>
 					<div style={{ display: "flex" }}>
-						<ToggleControl />
+						<ToggleControl onChange={(isChecked) => {
+							props.setAttributes({
+								enableTopCurve: isChecked,
+							})
+						}} checked={props.attributes.enableTopCurve}/>
 						<span>{__("Enable top curve", metadata.textdomain)}</span>
 					</div>
 				</PanelBody>
