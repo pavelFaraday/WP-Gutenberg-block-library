@@ -9,7 +9,12 @@
   "description": "Curvy shape dividers",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "color": {
+      "background": true,
+      "link": false,
+      "text": false
+    }
   },
   "attributes": {
     "enableTopCurve": {
