@@ -14,10 +14,17 @@ export const Curve = (props) => {
         }} >
             <svg 
                 preserveAspectRatio="none"
-                style={{ position: "absolute", top: 0, left: 0, width:`${props.width}%`, height:props.height }} 
+                style={{ 
+                    position: "absolute", 
+                    top: 0, 
+                    left: 0, 
+                    width:`${props.width}%`, 
+                    height:props.height, 
+
+                }} 
                 viewBox="0 0 1200 120">
                 <path 
-                    style={{ fill: "white" }} 
+                    style={{ fill: props.color || "white" }} 
                     d={props.scaleY ? invertedPath : normalPath }>
                 </path>
             </svg>
