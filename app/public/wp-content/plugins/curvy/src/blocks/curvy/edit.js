@@ -49,7 +49,11 @@ export default function Edit(props) {
 	return (
 		<>
 			<section className={`${className} alignfull`} {...blockProps}>
-				{props.attributes.enableTopCurve && <Curve /> }
+				{props.attributes.enableTopCurve && (
+					<Curve 
+						width={props.attributes.topWidth} 
+						height={props.attributes.topHeight} /> 
+					)}
 			</section>
 			<InspectorControls>
 				<PanelBody title={__("Top curve", metadata.textdomain)}>
