@@ -50,7 +50,9 @@ export default function Edit(props) {
 		<>
 			<section className={`${className} alignfull`} {...blockProps}>
 				{props.attributes.enableTopCurve && (
-					<Curve 
+					<Curve
+						flipX={props.attributes.topFlipX} 
+						flipY={props.attributes.topFlipY} 
 						width={props.attributes.topWidth} 
 						height={props.attributes.topHeight} /> 
 					)}
