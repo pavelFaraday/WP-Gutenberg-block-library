@@ -14,6 +14,7 @@ import { __ } from '@wordpress/i18n';
 import { 
 	useBlockProps, 
 	InspectorControls,
+	InnerBlocks
 } from '@wordpress/block-editor';
 
 import { 
@@ -58,6 +59,7 @@ export default function Edit(props) {
 						height={props.attributes.topHeight} 
 					/> 
 				)}
+				<InnerBlocks />
 				{props.attributes.enableBottomCurve && (
 					<Curve
 						isBottom
