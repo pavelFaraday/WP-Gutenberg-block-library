@@ -144,7 +144,7 @@ const Curve = props => {
         style: {
           fill: props.color || "white"
         },
-        d: props.scaleY ? invertedPath : normalPath
+        d: props.flipY ? invertedPath : normalPath
       })
     })
   });
