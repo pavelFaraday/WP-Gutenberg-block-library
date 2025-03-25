@@ -7,7 +7,22 @@
   "category": "blockyilicious",
   "icon": "smiley",
   "description": "Curvy shape dividers",
-  "example": {},
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "core/heading",
+        "attributes": {
+          "content": "Lorem Ipsum"
+        }
+      },
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "Lorem Ipsum"
+        }
+      }
+    ]
+  },
   "supports": {
     "html": false,
     "color": {
