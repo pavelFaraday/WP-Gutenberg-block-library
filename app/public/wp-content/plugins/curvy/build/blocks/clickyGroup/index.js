@@ -8,7 +8,7 @@
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blockylicious/clicky-group","version":"0.1.0","title":"Clicky group","category":"blockyilicious","icon":"smiley","description":"A group of clicky Buttons","supports":{"html":false,"spacing":{"blockGap":true}},"textdomain":"blockylicious","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blockylicious/clicky-group","version":"0.1.0","title":"Clicky group","category":"blockyilicious","icon":"smiley","description":"A group of clicky Buttons","supports":{"html":false,"spacing":{"blockGap":true}},"attributes":{"justifyContent":{"type":"string","enum":["left","center","right"],"default":"left"}},"textdomain":"blockylicious","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -36,15 +36,28 @@ function Edit(props) {
   const blockGap = (0,_utils_passValue__WEBPACK_IMPORTED_MODULE_1__.parseValue)(props.attributes.style?.spacing?.blockGap || "");
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     style: {
-      gap: blockGap
+      gap: blockGap,
+      justifyContent: props.attributes.justifyContent
     }
   });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)(blockProps, {
     template: [['blockylicious/clicky-button', {}]],
     allowedBlocks: ['blockylicious/clicky-button']
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    ...innerBlocksProps
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      ...innerBlocksProps
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.BlockControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.JustifyContentControl, {
+        value: props.attributes.justifyContent,
+        allowedControls: ["left", "center", "right"],
+        onChange: newValue => {
+          props.setAttributes({
+            justifyContent: newValue
+          });
+        }
+      })
+    })]
   });
 }
 
