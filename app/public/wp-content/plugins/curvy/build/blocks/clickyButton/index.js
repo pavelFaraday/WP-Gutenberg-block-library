@@ -8,7 +8,7 @@
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blockylicious/clicky-button","version":"0.1.0","title":"Clicky button","category":"blockyilicious","icon":"smiley","description":"A Clicky Button","supports":{"html":false},"textdomain":"blockylicious","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["blockylicious/clicky-group"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blockylicious/clicky-button","version":"0.1.0","title":"Clicky button","category":"blockyilicious","icon":"smiley","description":"A Clicky Button","supports":{"html":false,"color":{"background":true,"text":true,"link":false,"gradients":true,"enableContrastChecker":true},"spacing":{"padding":true}},"attributes":{"style":{"type":"object","default":{"color":{"background":"#000000","text":"#ffffff"},"spacing":{"padding":{"top":"15px","bottom":"15px","left":"15px","right":"15px"}}}}},"textdomain":"blockylicious","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["blockylicious/clicky-group"]}');
 
 /***/ }),
 
