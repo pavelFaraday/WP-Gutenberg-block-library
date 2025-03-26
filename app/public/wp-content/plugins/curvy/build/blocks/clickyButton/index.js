@@ -8,7 +8,7 @@
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blockylicious/clicky-button","version":"0.1.0","title":"Clicky button","category":"blockyilicious","icon":"smiley","description":"A Clicky Button","supports":{"html":false,"color":{"background":true,"text":true,"link":false,"gradients":true,"enableContrastChecker":true},"spacing":{"padding":true}},"attributes":{"style":{"type":"object","default":{"color":{"background":"#000000","text":"#ffffff"},"spacing":{"padding":{"top":"15px","bottom":"15px","left":"15px","right":"15px"}}}}},"textdomain":"blockylicious","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["blockylicious/clicky-group"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blockylicious/clicky-button","version":"0.1.0","title":"Clicky button","category":"blockyilicious","icon":"smiley","description":"A Clicky Button","supports":{"html":false,"color":{"background":true,"text":true,"link":false,"gradients":true,"enableContrastChecker":true},"spacing":{"padding":true}},"attributes":{"labelText":{"type":"string","default":""},"style":{"type":"object","default":{"color":{"background":"#000000","text":"#ffffff"},"spacing":{"padding":{"top":"15px","bottom":"15px","left":"15px","right":"15px"}}}}},"textdomain":"blockylicious","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["blockylicious/clicky-group"]}');
 
 /***/ }),
 
@@ -32,7 +32,19 @@ function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     ...blockProps,
-    children: "Clicky button"
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+      placeholder: "Label text",
+      value: props.attributes.labelText,
+      allowedFormats: [],
+      multiline: false,
+      onSplit: () => {},
+      onReplace: () => {},
+      onChange: newValue => {
+        props.setAttributes({
+          labelText: newValue
+        });
+      }
+    })
   });
 }
 
