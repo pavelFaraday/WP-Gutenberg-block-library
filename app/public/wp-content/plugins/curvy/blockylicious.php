@@ -61,5 +61,6 @@ function create_block_blockylicious_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/curvy' );
 	register_block_type( __DIR__ . '/build/blocks/clickyGroup' );
 	register_block_type( __DIR__ . '/build/blocks/clickyButton' );
+	register_block_type( __DIR__ . '/build/blocks/pickyGallery' );
 }
 add_action( 'init', 'WebDevEducation\create_block_blockylicious_block_init' );
