@@ -14,8 +14,10 @@
  * @package CreateBlock
  */
 
+namespace WebDevEducation;
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+	die('Silence is Golden'); // Exit if accessed directly.
 }
 
 /**
@@ -25,6 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
+
+
 
 function convert_custom_properties($value)
 {
@@ -53,9 +57,9 @@ function create_custom_block_category ($categories) {
  }
 
 function create_block_blockylicious_block_init() {
-	add_filter('block_categories_all', 'create_custom_block_category');
+	add_filter('block_categories_all', 'WebDevEducation\create_custom_block_category');
 	register_block_type( __DIR__ . '/build/blocks/curvy' );
 	register_block_type( __DIR__ . '/build/blocks/clickyGroup' );
 	register_block_type( __DIR__ . '/build/blocks/clickyButton' );
 }
-add_action( 'init', 'create_block_blockylicious_block_init' );
+add_action( 'init', 'WebDevEducation\create_block_blockylicious_block_init' );
