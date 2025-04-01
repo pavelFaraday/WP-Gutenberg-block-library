@@ -43,6 +43,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)();
+  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({
+    className: "piccy-gallery-inner-blocks"
+  }, {
+    allowedBlocks: ['blockylicious/piccy-image']
+  });
   const [editMode, setEditMode] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(true);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -52,8 +57,8 @@ function Edit(props) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
           className: "piccy-label",
           children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Piccy Image Gallery", _block_json__WEBPACK_IMPORTED_MODULE_4__.textdomain)
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
-          allowedBlocks: ['blockylicious/piccy-image']
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          ...innerBlocksProps
         })]
       }), !editMode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         children: "Preview Mode"
