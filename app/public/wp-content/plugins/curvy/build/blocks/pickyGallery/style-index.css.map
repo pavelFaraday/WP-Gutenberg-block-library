@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/pickyGallery/style-index.css","mappings":";;;AAAA;EACI;AACJ,C","sources":["webpack://curvy/./src/blocks/pickyGallery/style.scss"],"sourcesContent":[".wp-block-blockylicious-clicky-button {\n    text-decoration: none;\n}"],"names":[],"sourceRoot":""}
