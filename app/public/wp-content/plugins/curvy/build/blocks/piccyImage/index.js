@@ -16358,11 +16358,12 @@ const ImageThumbnail = props => {
   const image = (0,_hooks_useImage__WEBPACK_IMPORTED_MODULE_0__.useImage)(props.imageId);
   return image?.source_url ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
     style: {
-      height: 150,
+      height: props.height || 150,
       width: "100%",
       objectFit: "cover",
       display: "block"
     },
+    onClick: props.onClick,
     src: image.source_url
   }) : null;
 };

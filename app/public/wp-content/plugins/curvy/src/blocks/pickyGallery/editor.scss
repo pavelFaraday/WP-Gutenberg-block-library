@@ -1,4 +1,9 @@
 .wp-block-blockylicious-piccy-gallery {
+    .preview-mode {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+    }
     .edit-mode {
         padding: 40px;
         background: #eee;

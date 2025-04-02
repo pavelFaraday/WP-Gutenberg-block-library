@@ -20,21 +20,42 @@ export default function Edit(props) {
         const block = getBlocksByClientId(props.clientId)?.[0];
         return block?.innerBlocks;
     }, [props.clientId]);
+    const [previewModeImage, setPreviewModeImage] = useState({
+        imageId: innerBlocks?.[0]?.atrributes?.imageId,
+        blockId: innerBlocks?.[0]?.clientId,
+    });
 
     return (
             <>
-                <div {...blockProps}>
-                    {!!editMode && (
+                <div 
+                    {...blockProps}
+                >
+                        {!!editMode && (
                         <div className='edit-mode'>
                             <span className='piccy-label'>
                                 {__("Piccy Image Gallery", metadata.textdomain)}
                             </span>
                             <div {...innerBlocksProps} /> 
                         </div>
-                    )}
-                    {!editMode && <div>{(innerBlocks || []).map(innerBlock => (
-                            <ImageThumbnail key={innerBlock.clientId} imageId={innerBlock.attributes.imageId} />
-                    ))}</div>}
+                        )}
+                        {!editMode && 
+                        <div className='preview-mode'>{(innerBlocks || []).map(innerBlock => (
+                                <ImageThumbnail 
+                                    key={innerBlock.clientId} 
+                                    imageId={innerBlock.attributes.imageId} 
+                                    height={75} 
+                                    onClick={() => {
+                                        setPreviewModeImage({
+                                            imageId: innerBlock.atrributes.imageId,
+                                            blockId: innerBlock.clientId,
+                                        });
+                                    }} 
+                                />
+                            ))}
+                        </div>}
+                        <div>
+                            <ImageThumbnail height="initial" imageId={previewModeImage?.imageId} />
+                        </div>
                 </div>;
                 <BlockControls>
                     <ToolbarGroup>

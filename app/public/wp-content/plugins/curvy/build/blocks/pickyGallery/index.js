@@ -61,6 +61,10 @@ function Edit(props) {
     const block = getBlocksByClientId(props.clientId)?.[0];
     return block?.innerBlocks;
   }, [props.clientId]);
+  const [previewModeImage, setPreviewModeImage] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)({
+    imageId: innerBlocks?.[0]?.atrributes?.imageId,
+    blockId: innerBlocks?.[0]?.clientId
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       ...blockProps,
@@ -73,9 +77,22 @@ function Edit(props) {
           ...innerBlocksProps
         })]
       }), !editMode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        className: "preview-mode",
         children: (innerBlocks || []).map(innerBlock => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_imageThumbnail__WEBPACK_IMPORTED_MODULE_7__.ImageThumbnail, {
-          imageId: innerBlock.attributes.imageId
+          imageId: innerBlock.attributes.imageId,
+          height: 75,
+          onClick: () => {
+            setPreviewModeImage({
+              imageId: innerBlock.atrributes.imageId,
+              blockId: innerBlock.clientId
+            });
+          }
         }, innerBlock.clientId))
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_imageThumbnail__WEBPACK_IMPORTED_MODULE_7__.ImageThumbnail, {
+          height: "initial",
+          imageId: previewModeImage?.imageId
+        })
       })]
     }), ";", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.BlockControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarGroup, {
@@ -217,11 +234,12 @@ const ImageThumbnail = props => {
   const image = (0,_hooks_useImage__WEBPACK_IMPORTED_MODULE_0__.useImage)(props.imageId);
   return image?.source_url ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
     style: {
-      height: 150,
+      height: props.height || 150,
       width: "100%",
       objectFit: "cover",
       display: "block"
     },
+    onClick: props.onClick,
     src: image.source_url
   }) : null;
 };
