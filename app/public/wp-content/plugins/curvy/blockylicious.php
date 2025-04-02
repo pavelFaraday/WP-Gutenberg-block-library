@@ -63,6 +63,29 @@ function create_block_blockylicious_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/clickyButton' );
 	register_block_type( __DIR__ . '/build/blocks/pickyGallery' );
 	register_block_type( __DIR__ . '/build/blocks/piccyImage' );
+
+	register_block_pattern("blockyilicious/call-to-action", array(
+		'categories' => array('call-to-action'),
+		'title' => __('Blockyilicious call to action', 'blockyilicious'),
+		'description' => __('A Heading Paragraph & clicky button block', 'blockyilicious'),
+		'content' => '<!-- wp:heading {"textAlign":"center","level":1} -->
+					<h1 class="wp-block-heading has-text-align-center">Lorem Ipsum</h1>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph {"align":"center"} -->
+					<p class="has-text-align-center">Paragraph text for subheading</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:blockylicious/clicky-group {"justifyContent":"center","style":{"spacing":{"blockGap":"10px"}}} -->
+					<!-- wp:blockylicious/clicky-button {"labelText":"Call To Action","style":{"color":{"background":"#000000","text":"#ffffff"},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"20px","right":"20px"}}}} /-->
+					<!-- /wp:blockylicious/clicky-group -->
+
+					<!-- wp:paragraph -->
+					<p></p>
+					<!-- /wp:paragraph -->
+					'
+	));
 }
 add_action( 'init', 'WebDevEducation\create_block_blockylicious_block_init' );
+
 
