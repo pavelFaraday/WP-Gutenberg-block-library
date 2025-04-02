@@ -64,8 +64,11 @@ function create_block_blockylicious_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/pickyGallery' );
 	register_block_type( __DIR__ . '/build/blocks/piccyImage' );
 
+	register_block_pattern_category('blockyilicious', array(
+		'label' => __('Blockyilicious', 'blockyilicious')
+	));
 	register_block_pattern("blockyilicious/call-to-action", array(
-		'categories' => array('call-to-action'),
+		'categories' => array('call-to-action', 'blockyilicious'),
 		'title' => __('Blockyilicious call to action', 'blockyilicious'),
 		'description' => __('A Heading Paragraph & clicky button block', 'blockyilicious'),
 		'content' => '<!-- wp:heading {"textAlign":"center","level":1} -->
