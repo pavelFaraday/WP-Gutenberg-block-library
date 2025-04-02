@@ -5,25 +5,19 @@ import {faPanorama} from "@fortawesome/free-solid-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
-
 import {__} from '@wordpress/i18n';
 import metadata from './block.json';
 import './editor.scss';
+import { ImageThumbnail } from '../../components/imageThumbnail';
+import {useImage} from "../../hooks/useImage";
 
 export default function Edit(props) {
     const blockProps = useBlockProps();
-    const image = useSelect((select) => {
-        const data = select("core").getEntityRecord("postType", "attachment", props.attributes.imageId);
-        return data;
-    }, [props.attributes.imageId])
+    const image = useImage(props.attributes.imageId);
     const imageSelected = !!props.attributes.imageId && !!image?.source_url;
 
-    // console.log({image});
-
     return <div {...blockProps}>
-        {imageSelected &&
-            <img style={{height: 150, width: "100%", objectFit: "cover", display: "block"}} src={image.source_url} />
-        }
+        {imageSelected && <ImageThumbnail imageId={props.attributes.imageId} />}
         {!imageSelected && (
             <div style={{height: 150, width: "100%", background: "white", display: "flex"}}>
                 <FontAwesomeIcon icon={faPanorama} style={{margin: "auto"}} />
